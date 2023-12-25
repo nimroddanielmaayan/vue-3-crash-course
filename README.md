@@ -23,3 +23,7 @@ npm run dev
 ```sh
 npm run build
 ```
+
+## Technical Notes
+
+- This project uses the `uid` package to generate unique IDs for the tasks
