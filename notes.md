@@ -41,6 +41,9 @@
 
 - Vue has very good built-in dev tools
 
+- Just like in React, we need to use callback function in event handlers, so not
+  to triggrer an infinite loop
+
 ### Vue Components
 
 - The `App.vue` file is the root component. It contains the header, footer and
@@ -147,11 +150,11 @@
   2nd argument is an object that contains the data\state\payload that will be
   passed to the event listener
 
-- The `$emit()` function: This function is used to emit an event. There is a
-  slight difference between `emit()` and `$emit()`. The `$emit()` function is
-  used to emit an event from a child component to a parent component. The
-  `emit()` function is a function provided as an argument in the setup()
-  function of a component
+- The `$emit()` function (also called "inline emit"): This function is used to
+  emit an event. There is a slight difference between `emit()` and `$emit()`.
+  The `$emit()` function is used to emit an event from a child component to a
+  parent component. The `emit()` function is a function provided as an argument
+  in the setup() function of a component
 
 ### Vue Directives
 
@@ -232,3 +235,9 @@
 - Updating prop values: Just like in React, we can't update a prop value on the
   child component. We can only update it on the parent component. This is called
   "one-way data flow"
+
+### Running Code on Component Creation
+
+- If any function is called inside the script tag, and the script tag has a
+  `setup` attribute, then the function will be called once, when the component
+  is created (similar to `useEffect` in React)
