@@ -39,6 +39,8 @@
 - Vue has a state management library called Vuex, which is similar to Redux and
   a library valled Pinia, which is another optional state management library
 
+- Vue has very good built-in dev tools
+
 ### Vue Components
 
 - The `App.vue` file is the root component. It contains the header, footer and
@@ -128,6 +130,9 @@
   also use the `v-bind` directive to bind the state to an HTML attribute
   (`v-bind` is similar to `useState` in React)
 
+- Updating state in Vue is done by simple assignment. For example:
+  `variableName.value = newValue`
+
 ### Emitting and Listening to Events
 
 - The `v-on` directive is used to listen to events. It's similar to the
@@ -141,3 +146,89 @@
   This function recieves the name of the event as the first argument, and the
   2nd argument is an object that contains the data\state\payload that will be
   passed to the event listener
+
+- The `$emit()` function: This function is used to emit an event. There is a
+  slight difference between `emit()` and `$emit()`. The `$emit()` function is
+  used to emit an event from a child component to a parent component. The
+  `emit()` function is a function provided as an argument in the setup()
+  function of a component
+
+### Vue Directives
+
+- Directives are added as attributes to HTML elements in the `template` section
+  of a Vue component. They are similar to React hooks, but they are used in the
+  template (the HTML)
+
+- `v-if`: Similar to `if` statements in React. It accepts a boolean value, and
+  renders the element if the value is true
+
+- `v-else`: Similar to `else` statements in React. It doesn't accept any
+  arguments. It's used to render an element if the previous `v-if` statement is
+  false
+
+- `v-else-if`: Similar to `else if` statements in React. It accepts a boolean
+  value
+
+- `v-show`: Similar to `v-if`, but it doesn't remove the element from the DOM.
+  It just hides it. It accepts a boolean value. It's useful for elements that
+  need to be toggled on and off frequently, because it doesn't cause a re-render
+  of the component but only a toggle of the CSS class
+
+- `v-for`: Similar to `map` in React. It accepts an array and iterates over it.
+  It also accepts an optional argument - the array index. It's used to render a
+  list of the elements in the array and is used very oftenly. It's placed as an
+  attribute of the element that will be repeated, not of the parent element
+
+- `v-bind`: Similar to `useState` in React. It accepts a state variable and
+  binds it to an HTML attribute
+
+- `v-model`: Similar to `onChange` in React. It accepts a state variable and a
+  `@change` event listener and binds the state to the input element
+
+- `v-on`: Similar to `onClick` in React. It accepts an event listener and
+  listens to the event
+
+- `v-slot`: Similar to `children` in React. It accepts a slot name and renders
+  the content of the slot
+
+### Conditional Rendering
+
+- The `class:` syntax is used to conditionally add a class to an element. For
+  example: `class:active="isActive"`
+
+### Slots
+
+- Slots are used to pass content from a parent component to a child component.
+  The child component has a `<slot>` tag, and the parent component has the
+  content that will be passed to the child component. The content can be
+  anything, including other components. Slots are similar to `children` in React
+
+- A slot tag can have a default\fallback value, in case nothing is passed to it
+  from the parent component. The default value needs to be simply placed between
+  the opening and closing tags of the slot
+
+### Props
+
+- The syntax for passing props is: `:propName="propValue"`. The `:` part is
+  actually a shorthand for `v-bind`
+
+- In the child component, we need to define the `defineProps()` macro\function
+  to define the props that the component accepts. This function accepts an
+  object of key-object pairs, where each key is a prop name, and each internal
+  object contains optional values: `type`, `required`, `default`, and others if
+  needed
+
+- `defineProps()` can also accept an array of strings, where each string is a
+  prop name. This can be used when we don't need to define\validate the type of
+  the props, but usually using the object syntax is better and more readable
+
+- Props are just one way of passing data\state beteween components. The other
+  ways that were already mentioned are: `provide` \ `inject`, `emitter` \
+  `listener`, and `slots`. Also we can use a state management library
+
+- Props can also be passed to HTML elements, not only to components. For
+  example: `<h1 :style="style">`
+
+- Updating prop values: Just like in React, we can't update a prop value on the
+  child component. We can only update it on the parent component. This is called
+  "one-way data flow"

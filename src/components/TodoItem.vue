@@ -1,5 +1,6 @@
 <script setup>
-import { Icon } from "@iconify/vue";
+import { Icon } from '@iconify/vue';
+// Define the props, passed from the parent component
 const props = defineProps({
   todo: {
     type: Object,
@@ -11,7 +12,8 @@ const props = defineProps({
   },
 });
 
-defineEmits(["edit-todo", "update-todo", "toggle-complete", "delete-todo"]);
+// Define the emits, passed to the parent component
+defineEmits(['edit-todo', 'update-todo', 'toggle-complete', 'delete-todo']);
 </script>
 
 <template>
@@ -81,7 +83,7 @@ li {
     }
   }
 
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     appearance: none;
     width: 20px;
     height: 20px;
@@ -101,7 +103,7 @@ li {
       text-decoration: line-through;
     }
 
-    input[type="text"] {
+    input[type='text'] {
       width: 100%;
       padding: 2px 6px;
       border: 2px solid #41b080;
