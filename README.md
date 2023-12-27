@@ -2,7 +2,7 @@
 
 A Vue.js practice project
 
-Course link - https://www.youtube.com/watch?v=KTFH4P8unUQ
+Live version: https://vue-3-crud-app.netlify.app/
 
 Screenshot:
 
