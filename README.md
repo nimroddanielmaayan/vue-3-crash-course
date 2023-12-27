@@ -2,7 +2,9 @@
 
 A Vue.js practice project
 
-Course link - https://www.youtube.com/watch?v=KTFH4P8unUQ
+Course link - https://www.youtube.com/watch?v=KTFH4P8unUQ Screenshot:
+
+![vue-3-xplace](https://github.com/nimroddanielmaayan/vue-3-crash-course/assets/30357578/71e84de8-d8f8-4ca1-bb75-5c193542c407)
 
 ## Customize configuration
 
