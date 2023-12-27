@@ -39,7 +39,8 @@
 - Vue has a state management library called Vuex, which is similar to Redux and
   a library valled Pinia, which is another optional state management library
 
-- Vue has very good built-in dev tools
+- Vue has very good built-in dev tools. If the devtools don't show all the
+  updated informatio, sometimes it's necessary to refresh them
 
 - Just like in React, we need to use callback function in event handlers, so not
   to triggrer an infinite loop
@@ -89,12 +90,26 @@
 
 ### Vue Routing
 
-- The default Vue router setup is pretty simple. Inside the router, there is an
-  index.js file that contains an array of routes, each with a path and a
-  component. The router needs to be registered in the `main.js` file
+- The default Vue router setup is pretty simple, and it's included in the Vue
+  core. Inside the `router` folder, there should be an `index.js` file that
+  contains an array of routes, each with a path and a component. This router
+  needs to be registered in the `main.js` file
 
-- The `<router-link>` tag is used to create links to different routes. It is
-  similar to the `<Link>` tag in React
+- In the `index.js` file, there should be a `router` variable that contains a
+  `routes` array, which contains the routes of the application. Each route is an
+  object that contains a `path` a `name` and a `component`
+
+- The `component` can be imported at the top of the `index.js` file, or it could
+  be lazy loaded in the `routes` array. Lazy loading is done by using the
+  `() => import("/RouteName.vue")` syntax
+
+- In back end terms, lazy loading just means that the JS file\chunk won't be
+  requested from the server on initial load, but only when the route is
+  requested. It's best practice to lazy load as much as possible. One exception
+  is that the default\home route should never be lazy loaded
+
+- The `<router-link>` tag is used to create links to different routes, anywhere
+  in the application. It is similar to the `<Link>` tag in React
 
 ### Style and CSS in Vue
 
@@ -241,3 +256,36 @@
 - If any function is called inside the script tag, and the script tag has a
   `setup` attribute, then the function will be called once, when the component
   is created (similar to `useEffect` in React)
+
+### The watch() Function
+
+- The `watch()` function is used to watch for changes in a state variable. It
+  accepts 2 arguments: The first argument is the state variable, and the second
+  argument is a callback function that will be called when the state variable
+  changes
+
+- The callback function accepts 2 arguments: The new value of the state, and the
+  old value of the state. The `watch()` function is similar to a `useEffect`
+  hook with a dependency array in React
+
+- The `watch()` function can also accept a third argument, which is an object
+  that contains options for the watcher, including the `immediate` option, which
+  is a boolean value that determines whether the callback function will be
+  called immediately when the component is created or not
+
+- Another important option is `deep`, which is a boolean value that determines
+  whether the watcher will watch for changes in nested objects or not. If set to
+  false, only changes in the top level of the object will be watched
+
+### Computed Properties
+
+- Computed properties are defined using the `computed` function. They're similar
+  to `useMemo` in React. They're used to calculate a value based on other
+  values, and they are cached. They are especially useful when the calculation
+  is complex and\or expensive, and so we don't want to use regular state
+
+- What's also special about computed properties is that they re-evaluate every
+  time one of their state dependencies change. A regular state variable doesn't
+  do that. For example: A `computed` function can track a list of todos, and
+  change it's value from false to true once all the todos are completed. It does
+  this "in the background"

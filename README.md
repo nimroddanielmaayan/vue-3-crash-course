@@ -1,6 +1,6 @@
 # vue-crash-course
 
-A Vue.js crash course project
+A Vue.js practice project
 
 ## Customize configuration
 

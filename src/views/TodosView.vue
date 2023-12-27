@@ -1,18 +1,19 @@
 <script setup>
-import { Icon } from "@iconify/vue";
-import { uid } from "uid";
-import { ref, computed } from "vue";
-import TodoCreator from "../components/TodoCreator.vue";
-import TodoItem from "../components/TodoItem.vue";
+import { Icon } from '@iconify/vue';
+import { uid } from 'uid';
+import { ref, computed } from 'vue';
+import TodoCreator from '../components/TodoCreator.vue';
+import TodoItem from '../components/TodoItem.vue';
 
 const todoList = ref([]);
 
+// Computed function - track todos in the background and return true if all completed
 const todosCompleted = computed(() => {
   return todoList.value.every((todo) => todo.isCompleted);
 });
 
 const fetchTodoList = () => {
-  const savedTodoList = JSON.parse(localStorage.getItem("todoList"));
+  const savedTodoList = JSON.parse(localStorage.getItem('todoList'));
   if (savedTodoList) {
     todoList.value = savedTodoList;
   }
@@ -22,7 +23,7 @@ const fetchTodoList = () => {
 fetchTodoList();
 
 const setTodoListLocalStorage = () => {
-  localStorage.setItem("todoList", JSON.stringify(todoList.value));
+  localStorage.setItem('todoList', JSON.stringify(todoList.value));
 };
 
 const createTodo = (todo) => {
