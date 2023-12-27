@@ -2,6 +2,11 @@
 
 A Vue.js practice project
 
+Screenshot:
+
+![vue-3-xplace](https://github.com/nimroddanielmaayan/vue-3-crash-course/assets/30357578/71e84de8-d8f8-4ca1-bb75-5c193542c407)
+
+
 ## Customize configuration
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
